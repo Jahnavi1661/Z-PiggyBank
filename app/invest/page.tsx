@@ -229,8 +229,8 @@ function QuizBlock({ conceptId, onComplete }: { conceptId: string; onComplete: (
       <p style={{ fontSize: 16, fontWeight: 700, lineHeight: 1.5, marginBottom: 18 }}>{q.q}</p>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {q.options.map((opt, i) => {
-          let bg     = C.white;
-          let border = `2px solid ${C.black}`;
+          let  bg:string     = C.white;
+          let border:string = `2px solid ${C.black}`;
           if (selected !== null) {
             if      (i === q.answer)                         { bg = C.green;   }
             else if (i === selected && i !== q.answer)       { bg = "#FFB3B3"; }
