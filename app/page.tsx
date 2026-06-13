@@ -100,7 +100,7 @@ export default function ZPiggyBank() {
           {/* Inside your navbar, replace the nav-links section with this: */}
 <div style={{ display: "flex", gap: 36, fontSize: 14, fontWeight: 700 }} className="hidden md:flex">
   <a href="#goals" style={{ textDecoration: "none", color: COLORS.black, opacity: 0.75 }} className="hover-lift">Goals</a>
-  <a href="#savings" style={{ textDecoration: "none", color: COLORS.black, opacity: 0.75 }} className="hover-lift">Savings</a>
+  <a href="savings" style={{ textDecoration: "none", color: COLORS.black, opacity: 0.75 }} className="hover-lift">Savings</a>
   
   {/* Updated Invest Link */}
   <a 
