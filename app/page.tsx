@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-
+import Link from "next/link";
 const COLORS = {
   yellow: "#E8F900",
   cyan: "#00D4E8",
@@ -312,29 +312,30 @@ export default function ZPiggyBank() {
 
         <div className="feat-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
           {[
-            { title: "Expense Tracker", desc: "Track where your money goes every single day.", icon: "📊", bg: COLORS.yellow },
-            { title: "Saving Streaks", desc: "Build habits, earn XP rewards, never break the chain.", icon: "🔥", bg: COLORS.cyan },
-            { title: "Safe Investing", desc: "Beginner-friendly finance concepts, zero jargon.", icon: "📈", bg: COLORS.pink },
-            { title: "Level System", desc: "Complete goals and unlock brand-new financial worlds.", icon: "🎮", bg: COLORS.purple },
-          ].map(({ title, desc, icon, bg }, i) => (
-            <motion.div
-              key={title}
-              className="hover-lift"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1 * i }}
-              style={{
-                background: bg, borderRadius: 28,
-                border: `2.5px solid ${COLORS.black}`,
-                padding: "32px 28px",
-                cursor: "default",
-              }}
-            >
-              <div style={{ fontSize: 36, marginBottom: 16 }}>{icon}</div>
-              <h3 style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 10 }}>{title}</h3>
-              <p style={{ fontSize: 14, lineHeight: 1.55, opacity: 0.7, fontWeight: 500 }}>{desc}</p>
-            </motion.div>
-          ))}
+    { title: "Expense Tracker", desc: "Track where your money goes every single day.", icon: "📊", bg: COLORS.yellow, href: "/expenses" },
+  { title: "Saving Streaks", desc: "Build habits, earn XP rewards, never break the chain.", icon: "🔥", bg: COLORS.cyan, href: "/savings" },
+  { title: "Safe Investing", desc: "Beginner-friendly finance concepts, zero jargon.", icon: "📈", bg: COLORS.pink, href: "/invest" },
+  { title: "Level System", desc: "Complete goals and unlock brand-new financial worlds.", icon: "🎮", bg: COLORS.purple, href: "/goals" },
+].map(({ title, desc, icon, bg, href }, i) => (
+  <Link key={title} href={href} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+    <motion.div
+      className="hover-lift"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.1 * i }}
+      style={{
+        background: bg, borderRadius: 28,
+        border: `2.5px solid ${COLORS.black}`,
+        padding: "32px 28px",
+        cursor: "pointer",
+      }}
+    >
+      <div style={{ fontSize: 36, marginBottom: 16 }}>{icon}</div>
+      <h3 style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.03em", marginBottom: 10 }}>{title}</h3>
+      <p style={{ fontSize: 14, lineHeight: 1.55, opacity: 0.7, fontWeight: 500 }}>{desc}</p>
+    </motion.div>
+  </Link>
+))}
         </div>
       </section>
 
